@@ -3,18 +3,13 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const [city,setCity] = useState("");
-  const [info,setInfo] = useState(null);
-  const key="09e5330151ce11d113679e323e8cf339";
-
-
-  useEffect(() => {
-    if (city.length >= 3){
-    const timer = setTimeout(() => {
-      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`)
-      .then(res => res.json())
-      .then(result => setInfo(result));
-    }, 500);
-  }
+  const [info,setInfo] = useState("");
+  const key="put your key here";
+  
+useEffect(() => {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`)
+    .then(res => res.json())
+    .then(result => setInfo(result));
 },[city]);
  
   return (
